@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merge Protocol CoreTeam</title>
+  <script src="/_sdk/data_sdk.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .message-fade-in {
+            animation: fadeInUp 0.3s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .typing-indicator {
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .crypto-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm0 0c0 11.046 8.954 20 20 20s20-8.954 20-20-8.954-20-20-20-20 8.954-20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+ </head>
+ <body class="h-full bg-gray-900 text-white">
+  <main class="h-full flex flex-col max-w-4xl mx-auto"><!-- Header -->
+   <header class="gradient-bg crypto-pattern p-6 text-center border-b border-purple-500/30">
+    <h1 id="room-title" class="text-3xl font-bold mb-2">Merge Protocol CoreTeam</h1>
+    <p id="welcome-message" class="text-purple-100 text-lg">Welcome to the decentralized future!</p>
+    <div class="mt-4 space-y-3"><!-- State-Channel Technology -->
+     <div class="p-4 bg-black/20 rounded-lg border border-purple-400/30">
+      <div class="flex items-center space-x-2 mb-2">
+       <div class="w-3 h-3 bg-cyan-400 rounded-full animate-pulse"></div><span class="text-cyan-300 font-semibold text-sm">State-Channel Chatrooms</span>
+      </div>
+      <p class="text-purple-100 text-xs leading-relaxed">Messages and interactions are stored in mergeable off-chain graphs, drastically reducing latency and gas costs.</p>
+     </div><!-- Privacy-Preserving Identity -->
+     <div class="p-3 bg-black/15 rounded-lg border border-green-400/20">
+      <div class="flex items-center space-x-2 mb-1">
+       <div class="w-2 h-2 bg-green-400 rounded-full"></div><span class="text-green-300 font-medium text-xs">Privacy-Preserving Identity</span>
+      </div>
+      <p class="text-purple-100 text-xs">Using Deterministic Wallet Entropy Inversion (DWEI), users can prove identity and ownership without exposing private keys.</p>
+     </div><!-- Temporal Compression -->
+     <div class="p-3 bg-black/15 rounded-lg border border-blue-400/20">
+      <div class="flex items-center space-x-2 mb-1">
+       <div class="w-2 h-2 bg-blue-400 rounded-full"></div><span class="text-blue-300 font-medium text-xs">Temporal Compression</span>
+      </div>
+      <p class="text-purple-100 text-xs">No timestamps. Messages are validated by Merkle Temporal Proofs, ensuring order without revealing time.</p>
+     </div><!-- Self-Healing Contracts -->
+     <div class="p-3 bg-black/15 rounded-lg border border-yellow-400/20">
+      <div class="flex items-center space-x-2 mb-1">
+       <div class="w-2 h-2 bg-yellow-400 rounded-full"></div><span class="text-yellow-300 font-medium text-xs">Self-Healing Contracts</span>
+      </div>
+      <p class="text-purple-100 text-xs">The protocol's Self-Destruct Resurrection (SDR) enables contracts and chatrooms to "die and reborn" without losing history.</p>
+     </div><!-- Quantum-Safe Encryption -->
+     <div class="p-3 bg-black/15 rounded-lg border border-pink-400/20">
+      <div class="flex items-center space-x-2 mb-1">
+       <div class="w-2 h-2 bg-pink-400 rounded-full"></div><span class="text-pink-300 font-medium text-xs">Quantum-Safe Encryption</span>
+      </div>
+      <p class="text-purple-100 text-xs">Secured by Quantum Hash Reversal Proofs (QRHRP), future-proof against quantum computing threats.</p>
+     </div><!-- MERG Token Ecosystem -->
+     <div class="p-4 bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-lg border border-purple-300/30">
+      <div class="flex items-center space-x-2 mb-2"><span class="text-lg">💠</span> <span class="text-purple-200 font-semibold text-sm">The $MERG Token Ecosystem</span>
+      </div>
+      <div class="space-y-2 text-xs text-purple-100">
+       <div>
+        <span class="text-cyan-300 font-medium">Utility:</span> Gas for state merges, staking, entropy minting, and governance.
+       </div>
+       <div>
+        <span class="text-green-300 font-medium">Governance:</span> Through MergeDAO, users and investors shape upgrades and module evolution.
+       </div>
+       <div>
+        <span class="text-yellow-300 font-medium">Developer Rewards:</span> Builders who enhance chat features or compression modules earn MERG bounties.
+       </div>
+      </div>
+     </div><!-- Investment Invitation -->
+     <div class="p-4 bg-gradient-to-r from-green-900/20 to-blue-900/20 rounded-lg border border-green-300/30">
+      <div class="flex items-center space-x-2 mb-2"><span class="text-lg">📈</span> <span class="text-green-200 font-semibold text-sm">Investment &amp; Partnership Invitation</span>
+      </div>
+      <p class="text-xs text-purple-100 leading-relaxed mb-2">Merge Protocol is inviting fintech innovators, venture funds, and strategic partners to join in building the next era of communication and decentralized social infrastructure.</p>
+      <p class="text-xs text-purple-100 leading-relaxed">By combining AI-driven privacy, quantum-safe cryptography, and on-chain merge technology, Merge Protocol aims to become the universal decentralized chat layer for DAOs, DeFi projects, and metaverse communities.</p>
+     </div>
+    </div>
+    <div class="flex items-center justify-center mt-4 space-x-4 text-sm text-purple-200">
+     <div class="flex items-center space-x-1">
+      <div class="w-2 h-2 bg-green-400 rounded-full"></div><span>Decentralized</span>
+     </div>
+     <div class="flex items-center space-x-1">
+      <div class="w-2 h-2 bg-blue-400 rounded-full"></div><span id="user-count">0 Users Online</span>
+     </div>
+     <div class="flex items-center space-x-1">
+      <div class="w-2 h-2 bg-cyan-400 rounded-full"></div><span>Ultra-Low Latency</span>
+     </div>
+    </div>
+   </header><!-- Chat Messages -->
+   <div class="flex-1 overflow-hidden flex flex-col">
+    <div id="messages-container" class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-800/50">
+     <div id="empty-state" class="text-center py-12 text-gray-400">
+      <div class="text-6xl mb-4">
+       💬
+      </div>
+      <h3 class="text-xl font-semibold mb-2">Start the Conversation</h3>
+      <p>Be the first to share your thoughts about web3!</p>
+     </div>
+    </div>
+   </div><!-- Message Input -->
+   <div class="p-4 bg-gray-800 border-t border-gray-700">
+    <form id="message-form" class="flex space-x-3">
+     <div class="flex-1 relative"><input type="text" id="username-input" placeholder="Your username" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" maxlength="20" required>
+     </div>
+     <div class="flex-1 relative"><input type="text" id="message-input" placeholder="Type your message..." class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" maxlength="500" required>
+     </div><button type="submit" id="send-button" class="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"> Send </button>
+    </form>
+    <div class="mt-2 text-xs text-gray-500 text-center">
+     Messages are stored in your Canva Sheet • Be respectful and follow community guidelines
+    </div>
+   </div>
+  </main>
+  <script>
+        let messages = [];
+        let isLoading = false;
+        
+        const defaultConfig = {
+            room_title: "Merge Protocol CoreTeam",
+            welcome_message: "Welcome to the decentralized future!",
+            primary_color: "#8b5cf6",
+            background_color: "#1f2937",
+            text_color: "#ffffff",
+            surface_color: "#374151",
+            accent_color: "#10b981"
+        };
+
+        // Data SDK Handler
+        const dataHandler = {
+            onDataChanged(data) {
+                messages = data.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+                renderMessages();
+                updateUserCount();
+            }
+        };
+
+        // Element SDK Implementation
+        async function onConfigChange(config) {
+            const roomTitle = document.getElementById('room-title');
+            const welcomeMessage = document.getElementById('welcome-message');
+            
+            if (roomTitle) {
+                roomTitle.textContent = config.room_title || defaultConfig.room_title;
+            }
+            if (welcomeMessage) {
+                welcomeMessage.textContent = config.welcome_message || defaultConfig.welcome_message;
+            }
+            
+            // Apply colors
+            const primaryColor = config.primary_color || defaultConfig.primary_color;
+            const backgroundColor = config.background_color || defaultConfig.background_color;
+            const textColor = config.text_color || defaultConfig.text_color;
+            const surfaceColor = config.surface_color || defaultConfig.surface_color;
+            const accentColor = config.accent_color || defaultConfig.accent_color;
+            
+            document.body.style.backgroundColor = backgroundColor;
+            document.body.style.color = textColor;
+            
+            const sendButton = document.getElementById('send-button');
+            if (sendButton) {
+                sendButton.style.backgroundColor = primaryColor;
+            }
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [
+                    {
+                        get: () => config.primary_color || defaultConfig.primary_color,
+                        set: (value) => {
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ primary_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.background_color || defaultConfig.background_color,
+                        set: (value) => {
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.text_color || defaultConfig.text_color,
+                        set: (value) => {
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.surface_color || defaultConfig.surface_color,
+                        set: (value) => {
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ surface_color: value });
+                            }
+                        }
+                    },
+                    {
+                        get: () => config.accent_color || defaultConfig.accent_color,
+                        set: (value) => {
+                            if (window.elementSdk) {
+                                window.elementSdk.setConfig({ accent_color: value });
+                            }
+                        }
+                    }
+                ],
+                borderables: [],
+                fontEditable: undefined,
+                fontSizeable: undefined
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["room_title", config.room_title || defaultConfig.room_title],
+                ["welcome_message", config.welcome_message || defaultConfig.welcome_message]
+            ]);
+        }
+
+        function generateAvatar(username) {
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7', '#dda0dd', '#98d8c8'];
+            const colorIndex = username.length % colors.length;
+            return colors[colorIndex];
+        }
+
+        function formatTimestamp(timestamp) {
+            const date = new Date(timestamp);
+            const now = new Date();
+            const diffInMinutes = Math.floor((now - date) / (1000 * 60));
+            
+            if (diffInMinutes < 1) return 'Just now';
+            if (diffInMinutes < 60) return `${diffInMinutes}m ago`;
+            if (diffInMinutes < 1440) return `${Math.floor(diffInMinutes / 60)}h ago`;
+            return date.toLocaleDateString();
+        }
+
+        function renderMessages() {
+            const container = document.getElementById('messages-container');
+            const emptyState = document.getElementById('empty-state');
+            
+            if (messages.length === 0) {
+                emptyState.style.display = 'block';
+                return;
+            }
+            
+            emptyState.style.display = 'none';
+            
+            // Clear existing messages except empty state
+            const existingMessages = container.querySelectorAll('.message-item');
+            existingMessages.forEach(msg => msg.remove());
+            
+            messages.forEach(message => {
+                const messageEl = document.createElement('div');
+                messageEl.className = 'message-item message-fade-in bg-gray-700/50 rounded-lg p-4 border border-gray-600/50';
+                
+                const avatarColor = generateAvatar(message.username);
+                
+                messageEl.innerHTML = `
+                    <div class="flex items-start space-x-3">
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm" style="background-color: ${avatarColor}">
+                            ${message.username.charAt(0).toUpperCase()}
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center space-x-2 mb-1">
+                                <span class="font-semibold text-white">${escapeHtml(message.username)}</span>
+                                <span class="text-xs text-gray-400">${formatTimestamp(message.timestamp)}</span>
+                            </div>
+                            <p class="text-gray-200 break-words">${escapeHtml(message.message)}</p>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(messageEl);
+            });
+            
+            // Scroll to bottom
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function updateUserCount() {
+            const uniqueUsers = new Set(messages.map(m => m.username)).size;
+            const userCountEl = document.getElementById('user-count');
+            if (userCountEl) {
+                userCountEl.textContent = `${uniqueUsers} User${uniqueUsers !== 1 ? 's' : ''} Online`;
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        async function sendMessage(username, messageText) {
+            if (messages.length >= 999) {
+                showToast('Message limit reached (999 messages). Please refresh to continue.', 'error');
+                return;
+            }
+
+            const message = {
+                id: Date.now().toString() + Math.random().toString(36).substr(2, 9),
+                username: username.trim(),
+                message: messageText.trim(),
+                timestamp: new Date().toISOString(),
+                avatar: generateAvatar(username)
+            };
+
+            setLoading(true);
+            const result = await window.dataSdk.create(message);
+            setLoading(false);
+
+            if (!result.isOk) {
+                showToast('Failed to send message. Please try again.', 'error');
+            }
+        }
+
+        function setLoading(loading) {
+            isLoading = loading;
+            const sendButton = document.getElementById('send-button');
+            const messageInput = document.getElementById('message-input');
+            const usernameInput = document.getElementById('username-input');
+            
+            if (sendButton) {
+                sendButton.disabled = loading;
+                sendButton.textContent = loading ? 'Sending...' : 'Send';
+            }
+            if (messageInput) messageInput.disabled = loading;
+            if (usernameInput) usernameInput.disabled = loading;
+        }
+
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = `fixed top-4 right-4 px-6 py-3 rounded-lg text-white font-medium z-50 ${
+                type === 'error' ? 'bg-red-600' : 'bg-green-600'
+            }`;
+            toast.textContent = message;
+            
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(-10px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Form submission
+        document.getElementById('message-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (isLoading) return;
+            
+            const usernameInput = document.getElementById('username-input');
+            const messageInput = document.getElementById('message-input');
+            
+            const username = usernameInput.value.trim();
+            const messageText = messageInput.value.trim();
+            
+            if (!username || !messageText) {
+                showToast('Please enter both username and message', 'error');
+                return;
+            }
+            
+            await sendMessage(username, messageText);
+            messageInput.value = '';
+            messageInput.focus();
+        });
+
+        // Initialize
+        async function init() {
+            try {
+                // Initialize Element SDK
+                if (window.elementSdk) {
+                    await window.elementSdk.init({
+                        defaultConfig,
+                        onConfigChange,
+                        mapToCapabilities,
+                        mapToEditPanelValues
+                    });
+                }
+
+                // Initialize Data SDK
+                const result = await window.dataSdk.init(dataHandler);
+                if (!result.isOk) {
+                    console.error('Failed to initialize data SDK');
+                    showToast('Failed to connect to chat room', 'error');
+                }
+            } catch (error) {
+                console.error('Initialization error:', error);
+                showToast('Failed to initialize chat room', 'error');
+            }
+        }
+
+        // Start the app
+        init();
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a8801110051db23',t:'MTc2NDgxNjcwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
